@@ -2,7 +2,7 @@
 
 DLLPasswordFilterImplant is a custom password filter DLL that allows the capture of a user's credentials. Each password change event on a domain will trigger the registered DLL in order to exfiltrate the username and new password value prior successfully changing it in the Active Directory (AD).
 
-For more information about password filters consult [Microsoft's documentation] (https://msdn.microsoft.com/en-us/library/windows/desktop/ms721882(v=vs.85).aspx).
+For more information about password filters consult [Microsoft's documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/ms721882(v=vs.85).aspx).
 
 
 ## Installing
@@ -27,7 +27,7 @@ To install the password filter on a system:
 * Restart the system
 	
 	
-[Source] (https://msdn.microsoft.com/en-us/library/windows/desktop/ms721766(v=vs.85).aspx)
+[Source](https://msdn.microsoft.com/en-us/library/windows/desktop/ms721766(v=vs.85).aspx)
 	
 	
 ## Uninstalling
@@ -63,5 +63,5 @@ The password filter was tested exclusively on systems listed above.
 ## Debug
 
 Here are some tool that may help you debug the DLL (if necessary):
-* [Process Explorer] (https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
-* [Dependency Walker] (http://www.dependencywalker.com/)
+* [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
+* [Dependency Walker](http://www.dependencywalker.com/)
