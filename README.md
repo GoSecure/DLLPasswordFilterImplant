@@ -7,7 +7,7 @@ For more information about password filters consult [Microsoft's documentation](
 
 ## Installing
 
-To install the password filter on a system:
+1. To install the password filter on a system:
 * Create the DLL for the targeted architecture. Compile in 32-bit for a 32-bit system and in 64-bit for a 64-bit system.
 * Copy the DLL to the Windows installation directory. (Default folder: \Windows\System32)
 * Register the password filter by updating the following registry key:
@@ -28,6 +28,19 @@ To install the password filter on a system:
 	
 	
 [Source](https://msdn.microsoft.com/en-us/library/windows/desktop/ms721766(v=vs.85).aspx)
+	
+	
+2. To register the key and the domain for DNS exfiltration:
+* Go to the following registry key:
+	```
+	HKEY_LOCAL_MACHINE
+		SYSTEM
+			CurrentControlSet
+				Control
+					Lsa
+	```
+* Create a string type subkey named "Key". Specify the key you want the DLL to use for encryption. If the key is shorter than the data to encrypt, the key will be repeated.
+* Create a string type subkey named "Domain". Specify your domain in the value of that subkey. *Your domain must start with a '.'.* (Example value: ".yourdomain.com")
 	
 	
 ## Uninstalling
