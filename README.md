@@ -22,7 +22,7 @@ For more information about password filters consult [Microsoft's documentation](
 
 	If the Notification Packages subkey does not exist, add it, and then add the name of the DLL ("DLLPasswordFilterImplant" if you didn't rename it) to the value data.
 	
-	*Do not include the ".dll" extension when adding the name of the DLL in the Notification Packages subkey.*
+	**Do not include the ".dll" extension when adding the name of the DLL in the Notification Packages subkey.**
 	
 * Restart the system
 	
@@ -40,7 +40,7 @@ For more information about password filters consult [Microsoft's documentation](
 					Lsa
 	```
 * Create a string type subkey named "Key". Specify the key you want the DLL to use for encryption. If the key is shorter than the data to encrypt, the key will be repeated.
-* Create a string type subkey named "Domain". Specify your domain in the value of that subkey. *Your domain must start with a '.'.* (Example value: ".yourdomain.com")
+* Create a string type subkey named "Domain". Specify your domain in the value of that subkey. **Your domain must start with a "." .** (Example value: ".yourdomain.com")
 	
 	
 ## Uninstalling
