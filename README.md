@@ -30,7 +30,7 @@ For more information about password filters consult [Microsoft's documentation](
     echo "Key=hex:$(openssl rsa -in $KEY -pubout | sed -E '/^\-/d' | base64 -d | python2 -c 'import sys; print(",".join(["{:02x}".format(ord(b)) for b in sys.stdin.read()]))')" >> addKey.reg
     ```
     You can then run `addKey.reg` file to append the raw public key to the registry.
-    Note that using assymetric encryption significantly increases the size of
+    Note that using asymmetric encryption significantly increases the size of
     the data to exfiltrate due to message padding. There are possible
     improvements to be made to reduce the data overhead.
 
