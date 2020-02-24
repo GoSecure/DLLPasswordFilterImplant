@@ -1,8 +1,14 @@
 # DLLPasswordFilterImplant
 
-DLLPasswordFilterImplant is a custom password filter DLL that allows the capture of a user's credentials. Each password change event on a domain will trigger the registered DLL in order to exfiltrate the username and new password value prior successfully changing it in the Active Directory (AD).
+DLLPasswordFilterImplant is a custom password filter DLL that allows the capture
+of a user's credentials. Each password change event on a domain will trigger the
+registered DLL in order to exfiltrate the username and new password value prior
+successfully changing it in the Active Directory (AD).
 
-For more information about password filters consult [Microsoft's documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/ms721882(v=vs.85).aspx).
+For more information about password filters consult the [Microsoft documentation][1].
+
+
+[1]: (https://msdn.microsoft.com/en-us/library/windows/desktop/ms721882(v=vs.85).aspx) "Password Filter Documentation"
 
 ## Installing
 
@@ -67,6 +73,23 @@ To completely remove the password filter of a system:
 
 * Restart the system
 * In the Windows installation directory (Default folder: \Windows\System32), find the password filter DLL ("DLLPasswordFilterImplant.DLL" if you didn't rename it) and delete the file.
+
+
+## DNS Exfiltration Server
+
+A simple DNS server to receive the exfiltrated data is provided in `scripts/`.
+Run `pip install -r scripts/requirement.txt`, preferably in a virtual
+environment. and then provide it with a .PEM encoded private key and optional
+output file (defaults to `creds.txt`) where to output the credentials.
+
+Currently, the DNS server does not support concurrent password changes and
+serves only as a proof of concept. Pull requests adding robustness to the server
+are more than welcome.
+
+
+## Caveats
+
+- Deleting the implant requires to first disable it and then restart Windows.
 
 
 ## Compatibility
